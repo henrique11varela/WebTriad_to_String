@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    height: calc(100dvh - 2em);
+    padding: 1em;
+    display: grid;
+    grid-template-rows: min-content 3fr 1fr 3fr;
+    grid-template-areas:
+        "title title title"
+        "input input input"
+        "paste stringify copy"
+        "output output output"
+        ". social .";
+    gap: 1em;
+    background-color: #212529;
+}
+
+section>* {
+    height: 100%;
+    width: 100%;
+}
+
+section>button {
+    font-size: 1.5em;
+}
+
+textarea {
+    overflow: scroll;
+}
+
+textarea::placeholder {
+    text-align: center;
+}
+
+#title {
+    text-align: center;
+    color: #f8f9fa;
+    grid-area: title;
+}
+
+#inputArea {
+    grid-area: input;
+}
+
+#paste {
+    grid-area: paste;
+}
+
+#stringify {
+    grid-area: stringify;
+}
+
+#copy {
+    grid-area: copy;
+}
+
+#outputArea {
+    grid-area: output;
+}
+
+#social {
+    grid-area: social;
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+#social > a {
+    width: 100%;
+}
+
+@media (min-width: 768px) { 
+    section {
+        height: calc(100dvh - 6em);
+        padding: 2em;
+        padding-bottom: 4em;
+        grid-template-rows: min-content 2fr repeat(3, 1fr) 2fr;
+        grid-template-columns: 2fr 1fr 2fr;
+        grid-template-areas:
+            "title title title"
+            "input . output"
+            "input paste output"
+            "input stringify output"
+            "input copy output"
+            "input social output";
+        gap: 2em;
+        background-color: #212529;
+    }
+}
